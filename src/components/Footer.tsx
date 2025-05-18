@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -16,11 +16,21 @@ export default function Footer() {
           </div>
           
           <div className="flex space-x-6">
-            <a href="https://github.com/lion92" target="_blank" rel="noopener noreferrer" className="social-link">
-              <Github className="w-5 h-5" />
+            <a 
+              href="https://github.com/lion92" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link hover:transform hover:scale-110 transition-transform"
+            >
+              <Github className="w-6 h-6" />
             </a>
-            <a href="www.linkedin.com/in/kriss-clotilde" target="_blank" rel="noopener noreferrer" className="social-link">
-              <Linkedin className="w-5 h-5" />
+            <a 
+              href="https://www.linkedin.com/in/kriss-clotilde" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link hover:transform hover:scale-110 transition-transform"
+            >
+              <Linkedin className="w-6 h-6" />
             </a>
           </div>
         </div>

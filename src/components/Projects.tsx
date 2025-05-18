@@ -3,18 +3,22 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: "Projet Kriss Clotilde 2024",
-    description: "Gestion de budget",
-    image: "https://media.licdn.com/dms/image/v2/C4D03AQEyIUP8i2cldQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1619791365722?e=1737590400&v=beta&t=q2XWA0WY_LBmTNWi1by_gYm_iSH1AWndgtFGbYh8F3Q",
-    tech: ["React", "Nest", "TypeOrm"],
-    demo: "https://gestiontaches.krissclotilde.com/"
+    title: "Gestion de Budget",
+    description: "Application web permettant de gérer son budget personnel avec suivi des dépenses, visualisation des données et planification financière.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    tech: ["React", "Nest", "TypeOrm", "PostgreSQL", "TailwindCSS"],
+    demo: "https://gestiontaches.krissclotilde.com/",
+    github: "https://github.com/lion92",
+    features: ["Suivi des dépenses", "Graphiques interactifs", "Export des données", "Multi-devise"]
   },
   {
-    title: "Projet Kriss Clotilde 2024",
-    description: "Creation de recette de cuisine",
-    image: "https://media.licdn.com/dms/image/v2/C4D03AQEyIUP8i2cldQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1619791365722?e=1737590400&v=beta&t=q2XWA0WY_LBmTNWi1by_gYm_iSH1AWndgtFGbYh8F3Q",
-    tech: ["React", "Nest", "TypeOrm"],
-    demo: "https://recette.krissclotilde.com/"
+    title: "Recettes de Cuisine",
+    description: "Plateforme de partage de recettes de cuisine avec système de recherche avancé et gestion des favoris.",
+    image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    tech: ["React", "Nest", "TypeOrm", "PostgreSQL", "TailwindCSS"],
+    demo: "https://recette.krissclotilde.com/",
+    github: "https://github.com/lion92",
+    features: ["Recherche avancée", "Système de notation", "Favoris", "Partage social"]
   }
 ];
 
@@ -26,23 +30,32 @@ export default function Projects() {
           Mes Projets
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="relative h-48 overflow-hidden">
+            <div key={index} className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="relative h-64 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">Fonctionnalités principales:</h4>
+                  <ul className="list-disc list-inside text-gray-600 dark:text-gray-300">
+                    {project.features.map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full">
                       {tech}
@@ -50,8 +63,22 @@ export default function Projects() {
                   ))}
                 </div>
                 
-                <div className="flex justify-end items-center">
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">
+                <div className="flex justify-between items-center">
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                  >
+                    <Github className="w-5 h-5" />
+                    <span>Code source</span>
+                  </a>
+                  <a 
+                    href={project.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
+                  >
                     <ExternalLink className="w-5 h-5" />
                     <span>Voir le projet</span>
                   </a>

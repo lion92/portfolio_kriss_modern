@@ -3,7 +3,6 @@ import { Mail, MapPin, Send } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     message: ''
   });
@@ -11,7 +10,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     window.location.href = `mailto:kriss.clotilde@gmail.com?subject=Contact from Portfolio&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+      `Email: ${formData.email}\n\n${formData.message}`
     )}`;
   };
 
@@ -58,20 +57,6 @@ export default function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Nom
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-purple-500"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email
